@@ -1,8 +1,12 @@
+/**
+ *Submitted for verification at Etherscan.io on 2020-06-17
+*/
+
 pragma solidity ^0.5.3;
 /*
 *  STONK.sol
 *  STONKv2 deflationary token smart contract
-*  2020-06-15
+*  2020-06-17
 **/
 
 interface IERC20 {
@@ -85,6 +89,7 @@ contract STONK is ERC20Detailed {
   string constant tokenSymbol = "STONK";
   uint8  constant tokenDecimals = 18;
   uint256 _totalSupply = 101000000000000000000000000;
+  uint256 public stepValue = 320;
   uint256 public basePercent = 100;
 
   constructor() public payable ERC20Detailed(tokenName, tokenSymbol, tokenDecimals) {
@@ -104,8 +109,8 @@ contract STONK is ERC20Detailed {
   }
 
   function findDestonkAmount(uint256 value) public view returns (uint256)  {
-    uint256 roundValue = value.ceil(basePercent);
-    uint256 destonkAmount = roundValue.mul(basePercent).div(10000);
+    uint256 roundValue = value.ceil(stepValue);
+    uint256 destonkAmount = roundValue.mul(basePercent).div(32000);
     return destonkAmount;
   }
 
