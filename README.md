@@ -1,4 +1,4 @@
 # STONK
-STONK deflationary token smart contract code.
+STONK 0.3125% FoT token smart contract
 
 Website: http://stonk.dev
